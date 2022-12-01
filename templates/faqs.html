@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>University of Makati</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='chat.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='home.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Fonts0 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lilita One' rel='stylesheet'>
+
+    </head>
+    <style>
+      p{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+       .border{
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  width: 99.2%;
+  height: 15px; 
+  background-color: #B58002;
+}
+      .janica{
+  margin-top: 20px;
+}
+
+.janica h1 {
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 70px;
+}
+
+.accordion {
+  width: 90%;
+  max-width: 1000px;
+  margin: 2rem auto;
+}
+.accordion-item {
+  background-color: #fff;
+  color: #111;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.25);
+}
+.accordion-item-header {
+  padding: 0.5rem 3rem 0.5rem 1rem;
+  min-height: 3.5rem;
+  line-height: 1.25rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+.accordion-item-header::after {
+  content: "\002B";
+  font-size: 2rem;
+  position: absolute;
+  right: 1rem;
+}
+.accordion-item-header.active::after {
+  content: "\2212";
+}
+.accordion-item-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+.accordion-item-body-content {
+  padding: 1rem;
+  line-height: 1.5rem;
+  border-top: 1px solid;
+  border-image: linear-gradient(to right, transparent, #34495e, transparent) 1;
+}
+
+
+.footer1{
+  background-color: #062966;
+  color: white;
+  padding: 50px;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: -10px;
+  font-family: 'Montserrat', sans-serif;
+  
+}
+.footer2{
+  margin-top: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+.question2{
+    color: white;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: center;
+    line-height: 1.5em;
+    display: inline-block;
+    background:#062966;
+    padding: 10px;
+    border-radius: 8px;
+    border-bottom-right-radius: 2px;
+    max-width: 80%;
+    margin-right: 10px;
+    animation: floatup .5s forwards;
+}
+.question1{
+    color: white;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: center;
+    line-height: 1.5em;
+    display: inline-block;
+    background:#062966;
+    padding: 10px;
+    border-radius: 8px;
+    border-bottom-right-radius: 2px;
+    max-width: 80%;
+    margin-right: 10px;
+    animation: floatup .5s forwards;
+}
+.answer1{
+    color: rgb(255, 255, 255);
+    width: 60%;
+    font-weight: normal;
+    font-size: 16px;
+    text-align: left;
+    line-height: 1.5em;
+    display: inline-block;
+    background:#062966;
+    padding: 10px;
+    border-radius: 8px;
+    border-bottom-left-radius: 2px;
+    max-width: 80%;
+    margin-right: 10px;
+    animation: floatup .5s forwards;
+    float: right;
+}
+.ques1{
+    float: left;
+    width: 60%;
+    color: #000;
+    font-weight: normal;
+    font-size: 16px;
+    text-align: left;
+    line-height: 1.5em;
+    display: block;
+    background: #e0e0e0;
+    padding: 10px;
+    border-radius: 8px;
+    border-bottom-left-radius: 2px;
+    max-width: 80%;
+    margin-left: 10px;
+    animation: floatup .5s forwards;
+}
+
+
+
+    </style>
+  <body>
+      <h2 class="header">  University of Makati TASC Office</h2>
+      
+        <!--Navbar-->
+    <nav>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <label class="logo"><img src="{{url_for('static', filename='umaklog.png')}}" alt="" >&nbsp&nbsp<img src="{{url_for('static', filename='tasclog.png')}}" alt=""></label>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/faqs">FAQS</a></li>
+        <li><a href="/about" style="color: #FBE3AA;">About TASC</a></li>
+        
+      </ul>
+    </nav>
+    <section class="border">    </section>
+     <!-- End of Navbar-->
+
+<!--Context Area-->
+
+<section class="janica">
+    <h1>Frequently Ask Questions</h1>
+  <!--Eto template ng FAQS-->
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-item-header">
+          Question 
+        </div>
+        <div class="accordion-item-body">
+          <div class="accordion-item-body-content">
+            <p>Answer </p>
+            
+          </div>
+        </div>
+      </div>
+   
+      
+      
+      
+    </section>
+    
+  
+
+
+
+
+
+
+
+
+
+  <!-- CHAT BAR BLOCK -->
+  <div class="chat-bar-collapsible">
+    <button id="chat-button" type="button" class="collapsible"> <h4>Chat with us now!
+        <i id="chat-icon" style="color: #fff;" ></i></h4>
+    </button>
+
+    
+    <div class="content">
+      <div class="full-chat-block">
+          <!-- Message Container -->
+          <div class="outer-container">
+              <div class="chat-container">
+                <div class="recommended" id="recom">
+                  <div class="question1">
+                 <button style="border: none;background: transparent;color: white; " id="answer12" onclick="answer1()"><p>What time are you available?</p></button>
+                   </div>
+               <div class="question2" style="margin-top: 10px;">
+                   <button style="border: none;background: transparent;color: white; "  id="answer21" onclick="answer2()"><p>What time are you available?</p></button>
+                  </div>
+                </div>
+                  <!-- Messages -->
+                  <div id="chatbox">
+                    <h5 id="chat-timestamp"></h5>
+                    <p id="botStarterMessage" class="botText"><span>Loading...</span></p>
+                    <div id="hidden">
+                    <p id="que1" class="ques1" ></p>
+                    <p id="que2" class="ques1"></p>
+                    <p id="answer1" class="answer1" ></p>
+                    <p id="answer2" class="answer1" ></p>
+                    <p id="answer1" class="answer1" >{{user}}</p>
+                    <p id="que2" class="ques1">{{inputs}}</p>
+                  </div>
+                </div>
+
+                  <!-- User input box -->
+                  <div class="chat-bar-input-block">
+                    <form action="{{url_for('faqs')}}" method="POST">
+                      <div id="userInput">
+                        <input id="textInput" name="textInput" class="input-box" type="text"
+                            placeholder="Tap 'Enter' to send a message" >
+                        <p></p>
+                        
+                        
+                    </div>
+
+                    <div class="chat-bar-icons">
+                      <input id="chat-icon" style="color: #333;" 
+                       type="submit" name = "submit"></input>
+                  </div>
+                    </form>
+                      
+                  </div>
+
+                  <div id="chat-bar-bottom">
+                      <p></p>
+                  </div>
+
+              </div>
+          </div>
+
+      </div>
+  </div>
+</div>
+<div class="footer1">
+  <h6>Get in touch with Us!</h6>
+  <h6>J.P. Rizal Extension West Rembo Makati City </h6>
+  </div>
+  
+<div class="footer2">
+<footer class="page-footer font-small unique-color-dark">
+
+      <div class="container-fluid text-center text-md-left mt-5">
+        
+        <div class="row mt-5">
+          <div class="col-md-5 col-lg-5 col-xl-4 mx-auto mb-5">
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p style="text-align: justify; ">The University of Makati (UMak) is a public, locally funded university of the local government of Makati. It is envisioned as the primary instrument where university education and industry training programs interface to mold Makati and non-Makati youth into productive citizens and IT-enabled professionals who are exposed to cutting-edge technology in their areas of specialization. UMak is the final stage of Makati City's integrated primary level to tertiary level educational system that enables its less privileged citizens to compete for job opportunities in various businesses and industries.
+            </div>
+    
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-2">
+            
+            <img src="{{url_for('static', filename='umaklog.png')}}" alt=""><br> 
+            <img src="{{url_for('static', filename='tasclog.png')}}" alt="">
+          </div>
+          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-3">
+           
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <h5>Other Transactions</h5><br>
+              <p><a href="https://umak.edu.ph/olrog/assets/n_assets/DATA%20PRIVACY%20NOTICE%20FOR%20STUDENTS.pdf">Data Privacy Notice</a></p>
+              <p><a href="https://www.umak.edu.ph/appointment/">UMak Appointment System</a></p>
+              <p><a href="https://www.umak.edu.ph/olrog/site/login"> Online Issuance of Grades</a></p>
+              <p><a href="https://umak.edu.ph/olfp/">Final Permit Application</a></p>
+              <p><a href="https://www.umak.edu.ph/scantopay/">Scan to Pay</a></p>
+               </div>
+      </div>
+     
+    </footer>
+    <div class="footer-copyright text-center py-3" style="border-top: 2px solid grey" >
+      <p style="font-size: 20px;">&copy; 2022 University of Makati. All rights reserved.</p>
+  </div>
+</div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="{{url_for('static', filename='responses.js')}}"></script>
+<script src="{{url_for('static', filename='chat.js')}}"></script>
+<script type="text/javascript">
+    // Accordion
+    const accordionItemHeaders = document.querySelectorAll(".accordion-item-header");
+    accordionItemHeaders.forEach(accordionItemHeader => {
+      accordionItemHeader.addEventListener("click", event => {
+      
+        const currentlyActiveAccordionItemHeader = document.querySelector(".accordion-item-header.active");
+        if(currentlyActiveAccordionItemHeader && currentlyActiveAccordionItemHeader!==accordionItemHeader) {
+         currentlyActiveAccordionItemHeader.classList.toggle("active");
+         currentlyActiveAccordionItemHeader.nextElementSibling.style.maxHeight = 0;
+        }
+    
+        accordionItemHeader.classList.toggle("active");
+        const accordionItemBody = accordionItemHeader.nextElementSibling;
+        if(accordionItemHeader.classList.contains("active")) {
+          accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+        }
+        else {
+          accordionItemBody.style.maxHeight = 0;
+        }
+        
+      });
+    });
+    </script>
+     <script>
+      var a;
+      
+      document.getElementById("que1").style.display="none";
+      document.getElementById("que2").style.display="none";
+      document.getElementById("answer1").style.display="none";
+      document.getElementById("answer2").style.display="none";
+       function answer1() {
+       if (a==1){
+    
+     document.getElementById("answer21").style.display="none";
+     return a = 0;
+       }
+       else{
+         document.getElementById("que1").style.display="inherit";
+         document.getElementById("answer1").style.display="inherit";
+         document.getElementById("que1").innerHTML = "Suggestive Question ";
+         document.getElementById("answer1").innerHTML = "Suggestive  Answer";
+         document.getElementById("recom").style.display="none";
+       
+       
+       }
+     }
+     function answer2() {
+       if (a==1){
+     document.getElementById("answer12").style.display="none";
+     return a = 0;
+       }
+       else{
+         document.getElementById("que2").style.display="inherit";
+         document.getElementById("answer2").style.display="inherit";
+         document.getElementById("que2").innerHTML = "Suggestive Question ";
+         document.getElementById("answer2").innerHTML = "Suggestive  Answer";
+         document.getElementById("recom").style.display="none";
+       
+       }
+     }
+     </script>
+</body>
+</html>

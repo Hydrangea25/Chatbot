@@ -1,0 +1,63 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "input": [
+                "Hi",
+                "Hey",
+                "How are you",
+                "Is anyone there?",
+                "Hello",
+                "Good day"
+            ],
+            "responses": [
+                "Hey",
+                "Hello, thanks for visiting",
+                "Hi there, what can I do for you?",
+                "Hi there, how can I help you?"
+            ]
+        },
+        {
+            "tag": "goodbye",
+            "input": ["Bye", "See you later", "Goodbye", "byebye"],
+            "responses": [
+                "See you later, thanks for visiting.",
+                "Have a nice day.",
+                "Bye! Come back again soon."
+            ] 
+        },
+        {
+            "tag": "thanks",
+            "input": ["Thanks", "Thank you"],
+            "responses": ["Happy to help!", "Your welcome!", "Welcome!"]
+        },
+        {
+            "tag": "inquiry",
+            "input": ["College admission Test Procedure", "Scholarship Requirement"],
+            "responses": [
+                "Thank you, we're directing you to college admission test procedure.","Thank you, we're directing you to Scholarship requirement."
+            ]
+        },
+        {
+            "tag": "collegeadmissiontestprocedure",
+            "input": ["Requirements for College admission","How to apply for College admission?"],
+            "responses": [
+                "You need to register online at www.umak.edu.oh/olea/registration/new and fill out the application form. \nAfter answering the CAPTCHA, Press submit and print the application form. \nReport to the TASK office on the date reflected on the application form. Bring the following requirements for evaluation: \n\t1.Accomplished Application form \n\t2.Four (4) copies of recent 2x2ID pictures (with name tag and white background) \n\t3.Photocopy of Record Card/Transcript of Records \n\t\t1.Grade 11 Report card (For current Grade 12 Students) \n\t\t2.Grade 12 Report card (for SHS graduates)\n\t\t3.Transcript of Record (for college transferees who have completed at least 2 years of tertiary education \n\t\t4.Photocopy of PSA Birth Certificate \n\t\t5.Photocopy of Voter's ID/Certificate of Biological parent/or sibling, if applicant is below 18 years old. \n\t4.If complete, TASC office Issues Examination Permit, Read the instructions and wait for the scheduled admission test. Only applicant with complete requirements will be entertained. \n\t5.The Appication Period will be from October 2022 to November 2022. \n6.The Admision Test will be on March 1 & 8 of 2023. \n7. For more inqueries, email at tascinqueriesumak.edu.ph"   
+            ] 
+        },
+        {
+            "tag": "scholarshipundergraduate/college",
+            "input": ["How to Apply scholarship for undergraduate Student", "How to apply for college scholarship"],
+            "responses": [
+                "For Undergraduate (Except COAHS) Students: \nThe Scholarship Application Form has been made available via the UMak Online Encoding And Assessment (OLEA) website. Please be guided by the following procedures: \n1. Click the 'Applying for Scholarship' button. \n2. Fill-out the required details (e.g. Type of Scholarship). Take note of the required documents specified. Residency Verification Form (RVF) is no longer required except for the incoming 2nd Year, COAHS, and MTPLC Students. \n3. Log in to your UMak email account. Print the Scholarship Application Form in a LONG (8.5 x 13) size bond paper. \n4. Proceed to Room 202, Academic Building 2 and submit the duly endorsed (please refer to the list of requirements regarding the Endorsing College/Office/Officer) and accomplished Scholarship Application Form together with the other requirements (in triplicate copies). \n5. Once the Scholarship Application Form has been approved, click the 'Proceed to Payment' button and follow the instructions indicated.."
+             ] 
+        },
+        {
+            "tag": "scholarshipcoahs",
+            "input": ["How to apply scholarship for COAHS and graduate program students"],
+            "responses": [
+                "For COAHS and Graduate Program Students: \n The Scholarship Application Form has been made available via the UMak Online Encoding and Assessment (OLEA) website. Please be guided by the following procedures: \n1. Download the Scholarship Application Form via the link provided. Take note of the required documents specified. \n2. Print the Scholarship  Application Form in a LONG (8.5 x 13) size bond paper and fill-out the necessary details. \n3. Proceed to Room 202, Academic Building 2 and submit the duly endorsed (please refer to the list of requirements regarding the Endorsing College/Office/Officer) and accomplished Scholarship Application Form together with the other requirements (in triplicate copies)."
+            ] 
+        }
+    ]
+}
